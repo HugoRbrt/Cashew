@@ -30,6 +30,7 @@ import 'package:budget/pages/editWalletsPage.dart';
 import 'package:budget/pages/notificationsPage.dart';
 import 'package:budget/pages/subscriptionsPage.dart';
 import 'package:budget/widgets/accountAndBackup.dart';
+import 'package:budget/widgets/backendSyncSettings.dart';
 import 'package:budget/widgets/importDB.dart';
 import 'package:budget/widgets/navigationFramework.dart';
 import 'package:budget/widgets/notificationsSettings.dart';
@@ -611,6 +612,10 @@ class SettingsPageContent extends StatelessWidget {
         ExportCSV(),
 
         ImportCSV(),
+
+        SettingsHeader(title: "Backend Sync"),
+
+        BackendSyncSettings(),
 
         SettingsHeader(title: "backups".tr()),
 
