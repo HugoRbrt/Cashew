@@ -178,7 +178,9 @@ class BackendSyncService {
 
     Uri uri = Uri.parse('$baseUrl/api/sync/transactions');
     if (lastSync != null) {
-      uri = uri.replace(queryParameters: {'since': lastSync});
+      // Backend compares against booking_date (YYYY-MM-DD), so truncate
+      String sinceDate = lastSync.length >= 10 ? lastSync.substring(0, 10) : lastSync;
+      uri = uri.replace(queryParameters: {'since': sinceDate});
     }
 
     final response = await http.get(uri, headers: _headers);
